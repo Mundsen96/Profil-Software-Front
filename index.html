@@ -4,11 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="./app.js" defer></script>
+  <script type="module" src="./app.js" defer></script>
   <link rel="stylesheet" href="style.css">
   <title>Front-Profil</title>
 </head>
 <body>
+<div id="modal-overlay">
+  <div id="modal">
+  </div>
+</div>
   <div id="container">
     <div class="header">
       <h1>Welcome to my Harry Potter collection App.</h1>
@@ -18,7 +22,8 @@
         <button class="api" id="slytherin">Slytherin Students</button>
         <button class="api" id="hufflepuff">Hufflepuff Students</button>
         <button class="api" id="ravenclaw">Ravenclaw Students</button>
-        <a id="favorites" href="./Favorites/favorites.html">Go to Library</a><br>
+        <a id="favorites" href="./Favorites/favorites.html">Go to Favorites</a><br>
+        <span id="items-favorites"></span>
       </div>
     </div>
     <table>

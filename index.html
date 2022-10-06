@@ -9,32 +9,36 @@
   <title>Front-Profil</title>
 </head>
 <body>
-<div id="modal-overlay">
-  <div id="modal">
-  </div>
-</div>
+
   <div id="container">
-    <div class="header">
-      <h1>Welcome to my Harry Potter collection App.</h1>
-      <div class="buttons">
-        <button class="api" id="all">All students</button>
-        <button class="api" id="gryffindor">Gryfindor Students</button>
-        <button class="api" id="slytherin">Slytherin Students</button>
-        <button class="api" id="hufflepuff">Hufflepuff Students</button>
-        <button class="api" id="ravenclaw">Ravenclaw Students</button>
-        <a id="favorites" href="./Favorites/favorites.html">Go to Favorites</a><br>
-        <span id="items-favorites"></span>
+    <div id="modal-overlay">
+      <div id="modal">
       </div>
     </div>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Date of birth</th>
-        <th>House</th>
+    <div class="header">
+      <h1>Welcome to my Harry Potter collection App. Click to load data.</h1>
+      <div class="buttons">
+        <button class="api all">All students</button>
+        <button class="api gryffindor">Gryfindor Students</button>
+        <button class="api slytherin">Slytherin Students</button>
+        <button class="api hufflepuff">Hufflepuff Students</button>
+        <button class="api ravenclaw">Ravenclaw Students</button>
+        <a id="favorites" href="./Favorites/favorites.html">Go to Favorites</a>
+        <span id="items-favorites">Favorites: </span>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead>
+        <th class="sort" id="name">Name</th>
+        <th class="sort" id="date">Date of birth</th>
+        <th class="sort" id="house">House</th>
         <th>Wizard</th>
         <th>Ancestry</th>
-        <th>Student/Staff</th>
-      </tr>
+        <th>Student</th>
+      </thead>
+      <tbody>
+
+      </tbody>
     </table>
   </div>
   

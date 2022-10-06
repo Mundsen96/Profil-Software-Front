@@ -4,17 +4,52 @@
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
-#container{
-  height: 100vh;
+body{
+  position: relative;
+}
+#container, .header, .image-container{
   display: flex;
   flex-direction:column;
   align-items: center;
 }
-th, td {
-  padding: 15px;
+#container{
+  height: 100vh;
 }
-table {
-  margin-top: 10px;
+
+.header{
+  padding: 1rem;
+}
+.buttons{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.data-table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+.data-table td, .data-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.data-table tr:nth-child(even){background-color: #f2f2f2;}
+
+.data-table tr:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.data-table th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #32bacf;
+  color: white;
 }
 
 button, a {
@@ -26,16 +61,56 @@ button, a {
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  text-decoration: none;
+  text-align:center;
 }
 
-button:hover {
+button:hover, a:hover{
   background: rgba(0, 0, 0, 0.7);
+}
+
+.gryffindor{background-color:#AE0001;} .slytherin{background-color:#2A623D} 
+.hufflepuff{background-color:#FFDB00} .ravenclaw{background-color:#222F5B}
+
+.image-container{
+  width:100%;
+  flex-direction: column;
+  border-radius: 3rem 3rem 0 0;
+  padding: 2rem;
+}
+img{
+  border-radius: 3rem;
+}
+.info-container{
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+  margin: 1rem 0;
+  box-shadow: 5px 5px 5px 5px #888888;
+}
+
+.info-container tr:nth-child(even){background-color: #32bacf;}
+
+.info-container tr{
+  text-align: left;
+}
+.info-container th{
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+.button-container{
+  display: flex;
+  padding:1rem;
+}
+
+.button-container button{
+  margin: 0 0.5rem
 }
 
 #modal-overlay {
   width: 100%;
-  height: 100vh;
-  position: absolute;
+  height: 100%;
+  position: fixed;
   background: rgba(0, 0, 0, 0.7);
 
   display: none;
@@ -45,19 +120,38 @@ button:hover {
 #modal-overlay #modal {
   max-width: 400px;
   width: 100%;
-  background: white;
-  height: 400px;
+  background:white;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items:center;
-  padding:10px;
 }
 #modal{
-  border-radius: 10%;
+  border-radius: 3rem;
+  position:fixed;
+}
+#modal button{
+
 }
 
-#modal-overlay #modal .modal-footer {
-  margin-top: auto;
+.sort:hover{
+  background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+
+}
+@media only screen and (min-width: 600px) {
+
+}
+@media only screen and (min-width: 768px) {
+
+}
+@media only screen and (min-width: 992px) {
+
+}
+@media only screen and (min-width: 1200px) {
+
 }

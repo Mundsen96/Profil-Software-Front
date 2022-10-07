@@ -1,9 +1,9 @@
-
-let profilePicture = '../picture.png';
+import { firstLetterUpper } from '../utils.js';
+let profilePicture = './picture.png';
 
 class Favorites {
   constructor(storage) {
-    this.favorites = !storage ? []: storage;
+    this.favorites = !storage ? [] : storage;
   }
 
   getFavorites() {
@@ -59,23 +59,6 @@ class CharacterItem {
   }
 }
 
-export class ListOfCharacters {
-  constructor(characters) {
-    this.characters = characters.map((character) => new Character(character));
-  }
-
-  render() {
-    const renderHook = document.querySelector('tbody');
-    for (const character of this.characters) {
-      const characterItem = new CharacterItem(character);
-      const characterEl = characterItem.render();
-      const modal = new Modal(character);
-      characterEl.addEventListener('click', () => modal.render());
-      renderHook.append(characterEl);
-    }
-  }
-}
-
 class Modal {
   constructor(character) {
     this.character = character;
@@ -84,19 +67,22 @@ class Modal {
 
   render() {
     const renderHook = document.getElementById('modal');
+
     const imageContainer = document.createElement('div');
     this.character.house === ''
       ? imageContainer.classList.add('image-container')
       : imageContainer.classList.add(
-          this.character.house.toLowerCase(),
-          'image-container'
-        );
+        this.character.house.toLowerCase(),
+        'image-container'
+      );
+
     const image = document.createElement('img');
     (image.src = this.character.image), (image.alt = 'portait');
-    image.style.width = '200px';
     imageContainer.append(image);
+
     const infoContainer = document.createElement('table');
     infoContainer.className = 'info-container';
+
     for (const key in this.character) {
       if (key === 'image') {
         continue;
@@ -112,8 +98,10 @@ class Modal {
       row.append(leftRow, rightRow);
       infoContainer.append(row);
     }
+
     const buttonContainer = document.createElement('div');
     buttonContainer.className = 'button-container';
+
     const favoriteButton = document.createElement('button');
     favoriteButton.textContent = this.favoritesButton;
     favoriteButton.addEventListener('click', this.addToFavorites.bind(this));
@@ -121,12 +109,15 @@ class Modal {
     const closeButton = document.createElement('button');
     closeButton.textContent = 'Close';
     closeButton.addEventListener('click', this.remove.bind(this));
+
     buttonContainer.append(favoriteButton, closeButton)
+
     renderHook.append(
       imageContainer,
       infoContainer,
       buttonContainer
     );
+
     const modalWindowOverlay = document.getElementById('modal-overlay');
     modalWindowOverlay.style.display = 'flex';
   }
@@ -147,17 +138,29 @@ class Modal {
   remove() {
     const modalWindowOverlay = document.getElementById('modal-overlay');
     modalWindowOverlay.style.display = 'none';
+
     const modal = document.getElementById('modal');
-    document.body.style.removeProperty('overflow');
     while (modal.firstChild) {
       modal.removeChild(modal.firstChild);
     }
   }
 }
 
-function firstLetterUpper(string){
-  const firstLetter = string.charAt(0)
-  const firstLetterCap = firstLetter.toUpperCase()
-  const remainingLetters = string.slice(1)
-  return firstLetterCap + remainingLetters
+export class ListOfCharacters {
+  constructor(characters) {
+    this.characters = characters.map((character) => new Character(character));
+  }
+
+  render() {
+    const renderHook = document.querySelector('tbody');
+    for (const character of this.characters) {
+      const characterItem = new CharacterItem(character);
+      const characterEl = characterItem.render();
+      const modal = new Modal(character);
+      characterEl.addEventListener('click', () => modal.render());
+      renderHook.append(characterEl);
+    }
+  }
 }
+
+
